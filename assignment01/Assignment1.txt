@@ -1,0 +1,311 @@
+Questions:
+1.Ordering a hotel online before a trip.
+Identify objects and behaviors
+
+Objects and behaviors:
+Information:data,
+Service
+
+customer:
+data:name,phone,data
+behaviors:search,order,pay,cancel,transfer,review
+
+Internet:
+Data:CollectionOfHotelweb1, CollectionOfHotelWeb2бнбн
+Behavior:searchForCollectionHotelWeb
+
+CollectionHotelWeb:
+data:URL, bankAccount,
+behaviors:search,sort,order,cancel,transfer,compare,
+
+Hotel:
+data:Address, RoomNum,Accessory,ChkInDate,ChkOutDate,price,
+ 
+credit card :
+data:Num,name,company,expr date,security code
+
+credit card company:
+behavior:authrizeTransaction
+
+OrderHotelOnline:
+Customer Jia,
+Internet  internet,
+hotelWebSite hotelweb1,
+
+Credit card CardOfJia, 
+Credit company visa,
+OrderConfirmation response,
+
+If (internet.an=available) 
+             Jia.searchInInternet->internet,question: CollectionOfHotelWeb//jia.findDesirableWebsite->collection of CollectionOfHotelWebs:                           CollectionOfHotelWebs:WebsitePage=1
+                 Loop:
+                     If jia.findsPages=NULL
+                          Break
+                     End
+                     jia.findDesirableWebsiteInAPage->internet,question,pageNum:WebSite
+                              COHotel=WebSite;
+                      If  COHotel!=NULL
+                               break
+                      else pageNum=pageNum+1
+                      end
+                End
+    
+
+    COHotel=WebSite
+    if COHotel!=NULL
+          COHotel.searchForDesirableHotel->ChkInDate,ChkOutDate,adress,price:Collection of Hotels
+           MyHotel=hotel;
+          jia.purchaseHotel->MyHotel,credit card,COHotel:OrderConfirmation
+          response=OrderConfirmation
+    else
+          jia.cantOrder
+else
+    jia.searchInInternetAgainLater
+end
+
+
+
+
+
+
+============================================================================================
+
+
+2.Design an app for calling taxis (e.g. Uber);
+
+
+
+UberApp 
+Data: Id, UserHistory
+Behavior: GetOrder,Match,SendOrder,retrieveOrder,getLocation,transferMoney,authorize,confirmation,calculation
+
+Passenger:
+Data:UberId,PhoneNum,Location,Credit card
+Behavior:PostOrder,CancelOrder,setDestinationAddress,PeriodOfValidity,purchase,ranking,confirmation
+
+TaxiDriver
+Data:UberId,DriverLicense,PhoneNum,Location,CarNum,CarDetail.
+Behavior:GetOrder,CancelOrder,DriveToDestination,ReportToUber,confirmation
+
+use app to calling taxis:
+passernger   Jia,
+TaxiDriver   Hee,
+app      Uber,
+Order    GotoPark,
+
+Uber.getJiaCurrentLocation
+jia.loginToUber->Uber:authorize
+
+    if(authorize)
+	  		if (jia.PostOrder=true)
+			       if jia.credit card !=Null
+						  "Credit card Error,Can't PostOrder!"
+					else	 
+                         	 jia.setDestinationAddress()				
+				   end 
+			end		  
+	  "authorize failed!"
+	   exit
+	end				  
+		
+    jia.setDestinationAddress(input)		
+ 
+	 uber.calculation(jia.Location,jia.setDestinationAddress)->AllRoute and Price:
+  	 			 Route=1
+					   Loop (Route<=AllRoute.size)
+					        uber Send Route Info And Price To  Jia 
+								 if (jia.confirmation=true)
+								 	 FozenMoney=jiaConfirmOrder.price
+									 jia.cancelOrder=False
+									 jia.postOrder(AllRoute[Route])
+								  else if(ALLRoute=0)
+								    "No more Routes.Sorry"
+								  else 
+								 	 Route++    
+                                 end
+								 
+					    End//   
+			
+	GotoPark= jia.postOrder(AllRoute[Route])	
+	 Uber.calculation(GotoPark)->AllMatcheTaxiDriver 
+	AllMatch=AllMatcheTaxiDriver[].size
+	
+		         if    AllMatch!=0
+	 		        Match=AllMatchs
+	      		 Loop(Match<Allmatchs)
+                     	Uber.sendOrderToSerevalMatchs-send to 5people everytime							  					
+															
+						 if  Time>10sec  AND TaxiDriver.GetOrder=False
+								 Next 5 Matches
+                         else  if  TaxiDriver.GetOrder =True   AND    TaxiDriver.confirmation=true 											            
+								GetTaxiDriver's 	Data	To passenger.							  
+                  End	// 					  
+					  
+Hee=TaxiDriver.GetOrder
+
+If Hee.Location=    jia.setDestinationAddress	
+    "Trip Successed"
+	Uber.transferMoney to Hee
+	Jia.ranking()
+end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+================================================================================================
+3.Design a job searching and posting platform.
+
+
+Platform-Webstie
+Data:Both user and Job data ,
+Behavior:search,check,authorize,return
+
+User
+Data:Id,Name,Age,Education,Address,PhoneNum,JobSituation,Email,Resume, Experince
+Behavior: Post,Search,Accept,Refuse, EditInfo, 
+
+Job
+Data:Title,Date,Address,salary,requirement,description
+
+Job searching and posting platform:
+JobPlantform  goodjob,
+User    jia,
+Job    engineer,
+
+Job-Posting:
+
+if  jia.id=true
+     jia.editInfo 
+	 goodjob-> put jia.information into database
+end
+
+jia.post( job )
+     
+	 Loop:
+	    jia.input information of jia.post(job)
+	       if   good.job.check jia.post(job)= pass
+	            then goodjob.authorize post
+				break
+	       else
+	             "Check Needed" 
+	       end
+	 end//loop;
+	 
+	 
+Job-seaching
+
+if  jia.id=true
+     jia.editInfo 
+	 goodjob-> put jia.information into database
+end
+
+
+newSearch=jia.search(jobSearchInformation)
+
+    if goodjob.check(newSearch)=pass
+	    if  goodjob.search(newSearch)!=Null
+		     goodjob.return allJobs->user's borwser web pages
+			    loop  (allPages)
+				      jia.check pages
+			    end
+		end
+    end
+		
+     
+     
+
+=====================================================================
+Questions:
+4.Ordering food in a restaurant
+
+customer
+Data:Name,Address,Money,PhoneNum
+Behavior:Move,Order,eat ,PayBill,schedule
+
+waiter
+Data:Name,ID,
+behavior:SearchSchedul,talk,sendMenu,TakeOrder,BringFood,
+
+restaurant
+Date:Name,address,OpenTime,CloseTime,Menu,Tables,scheduleData
+Behavior:Open,Close,Cook,TakeOrder,CheckOut,
+
+order
+Data: Name,price
+
+
+customer   jia,
+waiter       lee,
+restaurant    kfc,
+order     dinner,
+
+jia.move(kfc.address)
+
+if kfc.opentime<jia.arriveTime<kfc.CloseTime  
+     jia.move->into   kfc
+	 lee.talk(jia)
+	 if lee.SearchSchedul(jia.Name)!=0
+             jia.sit table      
+		     lee.sendMenu(jia)
+			 dinner=jia.order()
+	 else   if kfc.Tables!=null
+	         jia.sit table      
+		     lee.sendMenu(jia)
+			 dinner=jia.order() 
+     else
+            jia.wait()		
+else
+      jia.move(home)
+
+	  
+order
+
+order.name=dinner
+         lee.TakeOrder(dinner)
+		 kfc.TakeOrder(dinner)
+	     kfc.Cook(dinner)
+		 lee.BringFood(dinner)->jia
+		 jia.eat
+		 kfc.CheckOut(dinner)
+		 jia.PayBill(dinner)
+		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
