@@ -2,9 +2,11 @@
 public class ArrAddTest {
     
 	／* 1, your method name should be lower case character
-	*   2, 	what is return value? for example, it may like: "public int[] arrAddTest(int[] arrIn,int target) {"
+	*   2, what is return value? for example, it may like: "public int[] arrAddTest(int[] arrIn,int target) {"
 	*   3, we always use System.out.println() in the main method and get the return value in the specific method.	
-	* 4, i am sorry to say that i don't think your file can run in eclipse properly.  
+	*   4, i am sorry to say that i don't think your file can run in eclipse properly.
+        *   5, i know you do not have java programming experience before. But please pay attention to this details next time.
+		scores: 9 / 10    
         */
 	public ArrAddTest(int[] arrIn,int target) {
 		
