@@ -1,4 +1,4 @@
-
+//scores : 10 / 10
 public class Animal {
 	
 	int age;
