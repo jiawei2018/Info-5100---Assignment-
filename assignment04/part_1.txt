@@ -1,0 +1,9 @@
+
+
+
+HashMap provides the basic implementation of Map interface of Java. It stores the data in (Key,Value) pairs. To access a value we must know its key, no other way to access it. HashMap uses a technique Hashing that is a technique of converting a large String to small String that represents same String. A shorter value helps in indexing and faster searches.HashMaps work with Iterators, And HashMap makes absolutely no guarantees about the iteration order. It  will even change completely when new elements are added. 
+
+We use HashMap when:
+1.we can identify  our data with some unique key like our data can be processed in key value pair.
+2.When no index based operations is required, instead key based operations are preferred.
+3.HashMap has fast speed to find out if there is a valus exists.
