@@ -1,0 +1,32 @@
+part1
+ the error is  
+public book(int size){
+...
+}
+
+and   
+
+public book(int price){
+...
+}
+
+are have the same parameter 'int' and only one argument; if we set like  book(100) ;the compilar could not know it is the price or size.A class can have more than one constructor in this class , as long as the argument lists are different.
+
+part 2
+
+the 3rd line  void getTime(){ return time;} the error is that when  the method was marked
+with "void" ,that means there are no return value ,no any kind.
+
+
+part3-1
+ The output will be:
+0
+0
+10
+0
+20
+30
+
+
+part 3-2
+ The error is that we can't have same name "one"  more than once in the enumerate declear line.
