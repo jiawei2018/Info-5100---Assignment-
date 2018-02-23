@@ -1,3 +1,6 @@
+//total : 10 /10
+
+
 package week04;
 import java.util.*;
 
@@ -8,7 +11,7 @@ public class part2 {
 //		 [Step 1] Use a hashMap and a for loop to store the element in the int
 //		 array int[] A = [1,4,5,2,2,2,6,8,3,2,1]. 
 //       [Step 2]Delete 6 and 8 in the hashMap.
-//		 [Step 3]Return to boolean value that whether ¡°4¡± in the map. Print the
+//		 [Step 3]Return to boolean value that whether Â¡Â°4Â¡Â± in the map. Print the
 //		 results in step 1 ,2 and 3;(2 scores).
 		part2 t1=new part2();
 		HashMap hm=new HashMap();
