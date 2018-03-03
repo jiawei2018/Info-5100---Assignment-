@@ -1,3 +1,4 @@
+//scores : 2 / 2
 package week05;
 
 public class partEX {
