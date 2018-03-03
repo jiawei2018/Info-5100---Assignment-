@@ -1,3 +1,4 @@
+// scores : 3 / 3
 part1
  the error is  
 public book(int size){
