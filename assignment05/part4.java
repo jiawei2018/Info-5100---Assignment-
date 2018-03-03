@@ -1,3 +1,6 @@
+// nice try, but what if my input is "{[()]}", in this case, it is also right, but it will print out as wrong in your code
+//so I suggest you use stack to solve it.
+//score : 1. 5 / 2
 package week05;
 
 public class part4 {
