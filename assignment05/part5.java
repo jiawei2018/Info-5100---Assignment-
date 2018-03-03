@@ -1,3 +1,4 @@
+// good job scores 4 /4 
 package week05;
 import javax.swing.*;
 import java.awt.*;
@@ -281,7 +282,7 @@ public class part5 extends JFrame implements ActionListener{
 		if(num1 < -273.15) {
 			s = "error! below absolute zero!";
 		}else {
-			num3 = num1*1.8+32;//	C=(F-32)¡Â1.8
+			num3 = num1*1.8+32;//	C=(F-32)Â¡Ã‚1.8
 			s = String.valueOf(num3);
 		}
 		
